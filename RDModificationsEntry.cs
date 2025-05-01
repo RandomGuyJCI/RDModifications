@@ -5,7 +5,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using BepInEx;
 using BepInEx.Configuration;
-using BepInEx.Unity.Mono;
 using HarmonyLib;
 
 namespace RDModifications;
@@ -51,7 +50,7 @@ public class RDModificationsEntry : BaseUnityPlugin
         try 
         {
             HttpClient client = new();
-            HttpResponseMessage response = await client.GetAsync("https://raw.githubusercontent.com/raf13lol/RDModifications/refs/heads/main/VERSION.txt");
+            HttpResponseMessage response = await client.GetAsync("https://raw.githubusercontent.com/RandomGuyJCI/RDModifications/refs/heads/main/VERSION.txt");
             if (response.StatusCode != HttpStatusCode.OK)
                 return;
             string content = await response.Content.ReadAsStringAsync();
@@ -71,7 +70,7 @@ public class RDModificationsEntry : BaseUnityPlugin
             if (serverVersionNum <= currentVersionNum)
                 return;
 
-            HttpResponseMessage file = await client.GetAsync($"https://github.com/raf13lol/RDModifications/releases/download/{content}/com.rhythmdr.randommodifications.dll");
+            HttpResponseMessage file = await client.GetAsync($"https://github.com/RandomGuyJCI/RDModifications/releases/download/{content}/com.rhythmdr.randommodifications.dll");
             if (file.StatusCode != HttpStatusCode.OK)
                 return;
             byte[] fileData = await file.Content.ReadAsByteArrayAsync();
