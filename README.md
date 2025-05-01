@@ -1,6 +1,6 @@
 # RDModifications
 
-## a bepinex 6 (mono) mod !! sorry bepinex 5 users
+## a bepinex 5 (mono) mod !! it's now been ported, epic
 
 some random modifications that some people could want and such so why not
 
